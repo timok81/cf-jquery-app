@@ -17,12 +17,13 @@ function newItem() {
         li.toggleClass("strike");
     }
 
-    $('li').on('dblclick', crossOut);
+    li.on('dblclick', crossOut);
 
     //3(i). Adding the delete button "X": 
-    li.append('<crossoutbutton>X</crossoutbutton>');
+    let crossOutButton = $(`<crossoutbutton>X</crossoutbutton>`)
+    li.append(crossOutButton);
 
-    $('crossOutButton').on('click', deleteListItem);
+    crossOutButton.on('click', deleteListItem);
     //3(ii). Adding CLASS DELETE (DISPLAY: NONE) from the css:
     function deleteListItem() {
         li.addClass("delete")
@@ -31,4 +32,3 @@ function newItem() {
     $('#list').sortable();
 
 }
-
